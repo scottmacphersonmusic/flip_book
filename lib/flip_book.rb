@@ -12,11 +12,11 @@ class FlipBook
   def split
     c = @content.dup
     words = []
-    while c.index " "
-      i = c.index " "
-      words << c.slice!(0..(i - 1))
-      c.lstrip!
-    end
+    words << slice_first_word!(c) while c.index " "
     words << c
+  end
+
+  def slice_first_word!(sentence)
+    sentence.slice!(0..sentence.index(" ")).rstrip
   end
 end
