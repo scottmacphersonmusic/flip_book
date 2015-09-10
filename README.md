@@ -11,7 +11,7 @@ book = FlipBook.new(content)
 Use `#flip` to reverse the sentence:
 ```ruby
 book.flip
-# ==> "The rug really tied the room together."
+# ==> "That rug really tied the room together."
 ```
 ## Aproach
 This solution is best described backwards.  The private method `slice_first_word!` takes a string as an argument making the assumption that it has at least one space.  It uses the `String#slice!` method to return a substring up to and including the first whitespace.  Its necessary to take the space with the substring even though it gets removed with `rstrip` because by using the bang(`!`) version of `slice`, the initial string is permanently changed and the `split` method depends on a whitespace not occuring until after at least one non-whitespace character.
